@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -52,6 +54,26 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.job-card{
+  background-color:F7F9FF ;
+  border: 1px solid C0C0C0;
+  border-radius: 15px;
+  cursor:grab;
+  transition:transform 0.2s ease, opacity 0.2s ease;
+}
+
+.job-card:hover{
+  transform: scale(1.02);
+}
+
+.job-card.dragging{
+  opacity:0.5;
+  transform:rotate(3deg);
+  transform:scale(1.03);
+  cursor:grabbing;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 @media (prefers-color-scheme: light) {

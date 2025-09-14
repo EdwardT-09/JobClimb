@@ -1,4 +1,5 @@
 import React from 'react'
+import {Card, CardHeader, CardContent} from './components/Card'
 import {useDrag} from 'react-dnd';
 
 function JobCard() {
@@ -13,6 +14,18 @@ function JobCard() {
     })
 
     return (
+        //if isDragging is true then add dragging className
+        //otherwise add nothing
+        <div className={`job-card${isDragging? 'dragging' : ''}`} ref={dragRef}>
+            <Card>
+                <CardHeader>
+
+                </CardHeader>
+                <CardBody>
+                    
+                </CardBody>
+            </Card>
+        </div>
 
     )
 }
