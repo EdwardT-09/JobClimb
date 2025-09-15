@@ -1,33 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css"
+import JobCard from "./JobCard"
+import { DndProvider } from "react-dnd"
+import {HTML5Backend} from "react-dnd-html5-backend"
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
+  const job = {
+    id:'1',
+    company: 'Google',
+    position: 'Software Engineer',
+    address:'Mountain Side, CA',
+    salary: '$12,500',
+    startDate: '01/2/2026',
+    notes: "Great work culture, fits my skillsets",
+    status:'to-apply'
+  }
+  return(
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div>
+      <DndProvider backend={HTML5Backend}>
+        <JobCard job={job}></JobCard>
+      </DndProvider>
+    </div>
     </>
   )
 }

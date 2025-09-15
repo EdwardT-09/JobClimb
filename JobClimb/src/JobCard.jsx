@@ -1,8 +1,12 @@
 import React from 'react'
+import Dollar from './assets/Dollar.svg'
+import Briefcase from './assets/Briefcase.svg'
+import Calendar from './assets/Calendar.svg'
+import Location from './assets/Location.svg'
 import {Card, CardHeader, CardContent} from './components/Card'
 import {useDrag} from 'react-dnd';
 
-function JobCard() {
+function JobCard({job}) {
     const [{isDragging},dragRef] = useDrag({
         type:'job',
         //when dragging, it needs to know what job is dragging dragged and the current status of the job card
@@ -17,13 +21,36 @@ function JobCard() {
         //if isDragging is true then add dragging className
         //otherwise add nothing
         <div className={`job-card${isDragging? 'dragging' : ''}`} ref={dragRef}>
-            <Card>
+            <Card className="card">
                 <CardHeader>
-
+                    <div className="main-title">
+                        <img src={Briefcase} alt="Briefcase Icon" className="briefcase-icon"></img>
+                        <p className="company">{job.company} </p>
+                    </div>
+                    <p className="position">{job.position} </p>
                 </CardHeader>
-                <CardBody>
-                    
-                </CardBody>
+                <CardContent>
+                    <div>
+                        <div className="information-container">
+                            <div className="information">
+                                <img src={Location} alt="Location Icon"></img>
+                                <span className="">{job.address}</span>
+                            </div>
+                            <div className="information">
+                                <img src={Dollar} alt="Dollar Icon"></img>
+                                <span className="">{job.salary}</span>
+                            </div>                    
+                            <div className="information">
+                                <img src={Calendar} alt="Calendar Icon"></img>
+                                <span className="">{job.startDate}</span>
+                            </div>
+                        </div>
+                        <div className="notes-section">
+                            <p className="notes-title">Notes:</p>
+                            <p className="notes-content">{job.notes}</p>
+                        </div>
+                    </div>
+                </CardContent>
             </Card>
         </div>
 
