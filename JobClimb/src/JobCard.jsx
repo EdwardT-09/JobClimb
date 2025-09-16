@@ -3,8 +3,10 @@ import Dollar from './assets/Dollar.svg'
 import Briefcase from './assets/Briefcase.svg'
 import Calendar from './assets/Calendar.svg'
 import Location from './assets/Location.svg'
+import Options from './assets/Options.svg'
 import {Card, CardHeader, CardContent} from './components/Card'
 import {useDrag} from 'react-dnd';
+
 
 function JobCard({job}) {
     const [{isDragging},dragRef] = useDrag({
@@ -23,9 +25,14 @@ function JobCard({job}) {
         <div className={`job-card${isDragging? 'dragging' : ''}`} ref={dragRef}>
             <Card className="card">
                 <CardHeader>
-                    <div className="main-title">
-                        <img src={Briefcase} alt="Briefcase Icon" className="briefcase-icon"></img>
-                        <p className="company">{job.company} </p>
+                    <div className="mainline-container">
+                        <div className="main-title">
+                            <img src={Briefcase} alt="Briefcase Icon" className="briefcase-icon"></img>
+                            <p className="company">{job.company} </p>
+                        </div>
+                        <button>
+                            <img src={Options} alt="Options"></img>
+                        </button>
                     </div>
                     <p className="position">{job.position} </p>
                 </CardHeader>

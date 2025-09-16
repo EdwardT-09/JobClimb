@@ -1,5 +1,6 @@
 import "./App.css"
 import JobCard from "./JobCard"
+import Options from './Options'
 import { DndProvider } from "react-dnd"
 import {HTML5Backend} from "react-dnd-html5-backend"
 
@@ -20,6 +21,7 @@ function App() {
       <DndProvider backend={HTML5Backend}>
         <JobCard job={job}></JobCard>
       </DndProvider>
+      <Options></Options>
     </div>
     </>
   )

@@ -1,5 +1,5 @@
 .card{
-  padding-left:1%;
+  padding:0 1%;
   background-color:#F7F9FF ;
   border: 1px solid #C0C0C0;
   border-radius: 15px;
@@ -22,6 +22,12 @@
   transform:rotate(3deg) scale(1.03);
   cursor:grabbing;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.mainline-container{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .main-title{
@@ -71,3 +77,28 @@
   margin:0;
   font-size: 14px;
 }
+
+
+/*Options CSS */
+
+.options-container{
+  padding:0 1%;
+  background-color:#F7F9FF ;
+  border: 1px solid #C0C0C0;
+  border-radius: 15px;
+  overflow:hidden;
+  max-width:100px;
+  border:2px solid #C0C0C0;
+}
+.delete-container{
+  color: #EE0707;
+}
+
+.edit-container, .delete-container{
+  padding:0 ;
+  margin:0;
+  display:flex;
+  flex-direction: row;
+  gap:3%;
+}
+
