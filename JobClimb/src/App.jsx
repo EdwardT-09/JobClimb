@@ -1,6 +1,9 @@
+
 import "./App.css"
 import JobCard from "./JobCard"
 import Options from './Options'
+import Header from './Header'
+import Column from './Column'
 import { DndProvider } from "react-dnd"
 import {HTML5Backend} from "react-dnd-html5-backend"
 
@@ -18,13 +21,14 @@ function App() {
   return(
     <>
     <div>
+      <Header/>
       <DndProvider backend={HTML5Backend}>
-        <JobCard job={job}></JobCard>
+        <Column/>
       </DndProvider>
-      <Options></Options>
     </div>
     </>
   )
+
 }
 
 export default App

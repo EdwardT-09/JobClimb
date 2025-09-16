@@ -1,4 +1,3 @@
-import React from 'react'
 import Dollar from './assets/Dollar.svg'
 import Briefcase from './assets/Briefcase.svg'
 import Calendar from './assets/Calendar.svg'

@@ -1,0 +1,56 @@
+.column-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  min-height: 550px;
+}
+
+.column {
+  flex: 1;
+  background-color: transparent;
+  border-radius: 25px;
+  min-width: 200px;
+}
+
+.column-header {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 8px;
+  border-radius: 25px 25px 0px 0px;
+  padding: 5%;
+  height:20%;
+}
+
+.column-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.add-job-btn {
+  font-size:35px;
+  width:60px;
+  height:55px;
+  border-radius: 100%;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: all 0.01s linear;
+}
+
+.add-job-btn {
+  transform:scale(1.02);
+  opacity:0.8;
+}
+
+.header-icon{
+  width:48px;
+  height:auto;
+}
+
+.icon-and-title{
+  display:flex;
+  align-items: center;
+  gap:5%;
+  width:100%;
+}

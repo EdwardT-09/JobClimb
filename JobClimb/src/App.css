@@ -1,104 +1,13 @@
-.card{
-  padding:0 1%;
-  background-color:#F7F9FF ;
-  border: 1px solid #C0C0C0;
-  border-radius: 15px;
-  overflow:hidden;
-  max-width:272px;
-  border:2px solid #C0C0C0;
+html, body {
+  height: 100%;
+  margin: 0; 
+  padding: 0;
+  background-color: #F7F9FF;
 }
 
-.job-card{
-  cursor:grab;
-  transition:transform 0.2s ease, opacity 0.2s ease;
-}
-
-.job-card:hover{
-  transform: scale(1.02);
-}
-
-.job-card.dragging{
-  opacity:0.5;
-  transform:rotate(3deg) scale(1.03);
-  cursor:grabbing;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-.mainline-container{
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.main-title{
-  display:flex;
-  flex-direction: row;
-  align-items: center;
-  gap:3%;
-  margin:0;
-}
-
-.company{
-    font-size: 20px;
-}
-
-.position{
-    font-size: 18px;
-    margin:0;
-}
-
-.briefcase-icon{
-  height:95%;
-}
-
-.information-container{
-  margin:5%;
-  display: flex;
-  flex-direction: column;
-}
-
-.information{
-  display:flex;
-  flex-direction: row;
-  align-items: center;
-  gap:2%;
-  margin-top:2.5%;
-  margin-bottom:2.5%;;
-  font-size: 14px;
-}
-
-.notes-section{
-  margin-bottom: 5%;
-}
-.notes-title{
-    font-size: 16px;
-}
-.notes-title, .notes-content{
-  margin:0;
-  font-size: 14px;
-}
-
-
-/*Options CSS */
-
-.options-container{
-  padding:0 1%;
-  background-color:#F7F9FF ;
-  border: 1px solid #C0C0C0;
-  border-radius: 15px;
-  overflow:hidden;
-  max-width:100px;
-  border:2px solid #C0C0C0;
-}
-.delete-container{
-  color: #EE0707;
-}
-
-.edit-container, .delete-container{
-  padding:0 ;
-  margin:0;
-  display:flex;
-  flex-direction: row;
-  gap:3%;
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
