@@ -7,7 +7,7 @@ function AddJobModel({ isOpen, onClose, onSave, columnType }) {
         company: '',
         location: '',
         salary: '',
-        date: '',
+        startDate: '',
         notes: ''
     });
 
@@ -41,7 +41,7 @@ function AddJobModel({ isOpen, onClose, onSave, columnType }) {
             company: '',
             location: '',
             salary: '',
-            date: '',
+            startDate: '',
             notes: ''
         });
         onClose();
@@ -53,7 +53,7 @@ function AddJobModel({ isOpen, onClose, onSave, columnType }) {
             company: '',
             location: '',
             salary: '',
-            date: '',
+            startDate: '',
             notes: ''
         });
         onClose();
@@ -137,7 +137,7 @@ function AddJobModel({ isOpen, onClose, onSave, columnType }) {
                             type="date"
                             className="form-input"
                             value={formData.date}
-                            onChange={(e) => handleInputChange('date', e.target.value)}
+                            onChange={(e) => handleInputChange('startDate', e.target.value)}
                         />
                     </div>
 

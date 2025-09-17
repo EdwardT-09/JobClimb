@@ -95,11 +95,29 @@ function Column() {
                         </div>
                         <button className="add-job-btn" onClick={()=>handleAddJob(column.id)} title={`Add job to ${column.title}`} style={{backgroundColor: columnBtnColors[column.id]|| transparent, color: columnTextColors[column.id]}}>+</button>
                     </div>
+                    <div className="column-body"> 
+                        {getJobsForColumn(column.id).length === 0 ? (
+                            <div className ="empty-state">
+                                <div className="empty-state-icon">📝</div>
+                                No jobs yet.<br />
+                                Click the + button to add jobs!
+                            </div>  
+                        ): (
+                            getJobsForColumn(column.id).map(job => (<JobCard key={job.id} job={job}/>))
+                        )}
+                    </div>
                              
                 </div>
                 );
                 })}
+                <AddJobModel 
+                    isOpen={isAddModalOpen}
+                    onClose={handleCloseAddModal}
+                    onSave={handleSaveJob}
+                    columnType={currentColumn}
+                />
             </div>
+
     )
 }
 

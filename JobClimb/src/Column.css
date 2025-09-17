@@ -3,6 +3,7 @@
   flex-direction: row;
   gap: 16px;
   min-height: 550px;
+  margin-bottom: 5%;
 }
 
 .column {

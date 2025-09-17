@@ -12,7 +12,7 @@ function App() {
     id:'1',
     company: 'Google',
     position: 'Software Engineer',
-    address:'Mountain Side, CA',
+    location:'Mountain Side, CA',
     salary: '$12,500',
     startDate: '01/2/2026',
     notes: "Great work culture, fits my skillsets",

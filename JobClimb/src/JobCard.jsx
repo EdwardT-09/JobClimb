@@ -5,6 +5,7 @@ import Location from './assets/Location.svg'
 import Options from './assets/Options.svg'
 import {Card, CardHeader, CardContent} from './components/Card'
 import {useDrag} from 'react-dnd';
+import './JobCard.css'
 
 
 function JobCard({job}) {
@@ -21,7 +22,7 @@ function JobCard({job}) {
     return (
         //if isDragging is true then add dragging className
         //otherwise add nothing
-        <div className={`job-card${isDragging? 'dragging' : ''}`} ref={dragRef}>
+        <div className={`job-card ${isDragging ? 'dragging' : ''}`} ref={dragRef}>
             <Card className="card">
                 <CardHeader>
                     <div className="mainline-container">
@@ -40,7 +41,7 @@ function JobCard({job}) {
                         <div className="information-container">
                             <div className="information">
                                 <img src={Location} alt="Location Icon"></img>
-                                <span className="">{job.address}</span>
+                                <span className="">{job.location}</span>
                             </div>
                             <div className="information">
                                 <img src={Dollar} alt="Dollar Icon"></img>
