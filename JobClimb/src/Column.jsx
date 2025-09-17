@@ -1,6 +1,7 @@
 import {useState} from "react";
 import JobCard from "./JobCard.jsx";
 import AddJobModel from "./AddJobModel.jsx";
+import StatsBar from "./StatsBar.jsx";
 import Check from "./assets/Check.svg";
 import Clock from "./assets/Clock.svg";
 import Send from "./assets/Send.svg";
@@ -85,9 +86,18 @@ function Column() {
         return jobs.filter(job => job.status === columnId);
     };
 
-
+    // counts for StatsBar
+    const toApplyCount = getJobsForColumn('to-apply').length;
+    const inProgressCount = getJobsForColumn('in-progress').length;
+    const offersCount = getJobsForColumn('offers-received').length;
 
     return(
+        <>
+            <StatsBar
+                toApplyCount={toApplyCount}
+                inProgressCount={inProgressCount}
+                offersCount={offersCount}
+            />
            <div className="column-container">
             {columns.map(column => {
                 const [{ isOver }, dropRef] = useDrop({
@@ -135,7 +145,7 @@ function Column() {
                     currentJob={jobToEdit}
                 />
             </div>
-
+        </>
     )
 }
 
