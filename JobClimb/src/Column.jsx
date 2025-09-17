@@ -103,7 +103,7 @@ function Column() {
                                 Click the + button to add jobs!
                             </div>  
                         ): (
-                            getJobsForColumn(column.id).map(job => (<JobCard key={job.id} job={job}/>))
+                            getJobsForColumn(column.id).map(job => (<JobCard key={job.id} job={job} jobs={jobs} setJobs={setJobs}/>))
                         )}
                     </div>
                              

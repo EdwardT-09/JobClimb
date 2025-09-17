@@ -10,7 +10,7 @@ import './JobCard.css'
 import { useState } from 'react'
 
 
-function JobCard({job}) {
+function JobCard({job, jobs, setJobs}) {
 
     const [isOptionOpen, setIsOptionOpen] = useState(false)
     const[currentJobCard, setCurrentJobCard] = useState('')
@@ -52,6 +52,9 @@ function JobCard({job}) {
                             </button>
                             {isOptionOpen && currentJobCard === job.id && (<Options 
                                 onOpen = {handleOpenOption}
+                                currentJob = {currentJobCard}
+                                jobs= {jobs}
+                                setJobs={setJobs}
                             />)}
                         </div>
                     </div>
