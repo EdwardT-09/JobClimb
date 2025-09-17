@@ -51,7 +51,7 @@
 }
 
 .briefcase-icon{
-    height:95%;
+    height:55px;
 }
 
 .information-container{
@@ -85,23 +85,10 @@
 
 /*Options CSS */
 
-.options-container{
-    padding:0 1%;
-    background-color:#F7F9FF ;
-    border: 1px solid #C0C0C0;
-    border-radius: 15px;
-    overflow:hidden;
-    max-width:100px;
-    border:2px solid #C0C0C0;
-}
-.delete-container{
-    color: #EE0707;
+.options{
+    display:flex;
+    flex-direction: column;
+    width:24%;
+    align-items: end;
 }
 
-.edit-container, .delete-container{
-    padding:0 ;
-    margin:0;
-    display:flex;
-    flex-direction: row;
-    gap:3%;
-}

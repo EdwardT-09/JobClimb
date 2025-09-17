@@ -2,13 +2,28 @@ import Dollar from './assets/Dollar.svg'
 import Briefcase from './assets/Briefcase.svg'
 import Calendar from './assets/Calendar.svg'
 import Location from './assets/Location.svg'
-import Options from './assets/Options.svg'
+import OptionsIcon from './assets/Options.svg'
+import Options from './Options'
 import {Card, CardHeader, CardContent} from './components/Card'
 import {useDrag} from 'react-dnd';
 import './JobCard.css'
+import { useState } from 'react'
 
 
 function JobCard({job}) {
+
+    const [isOptionOpen, setIsOptionOpen] = useState(false)
+    const[currentJobCard, setCurrentJobCard] = useState('')
+
+    const handleOpenOption = (jobID) =>{
+        if(isOptionOpen && currentJobCard == job.id){
+            setIsOptionOpen(false);
+            setCurrentJobCard('');}
+        else{
+            setCurrentJobCard(jobID);
+            setIsOptionOpen(true);}
+        }
+
     const [{isDragging},dragRef] = useDrag({
         type:'job',
         //when dragging, it needs to know what job is dragging dragged and the current status of the job card
@@ -18,6 +33,7 @@ function JobCard({job}) {
             isDragging: monitor.isDragging()
         })
     })
+
 
     return (
         //if isDragging is true then add dragging className
@@ -30,9 +46,14 @@ function JobCard({job}) {
                             <img src={Briefcase} alt="Briefcase Icon" className="briefcase-icon"></img>
                             <p className="company">{job.company} </p>
                         </div>
-                        <button>
-                            <img src={Options} alt="Options"></img>
-                        </button>
+                        <div className="options">
+                            <button onClick={()=> handleOpenOption(job.id)}>
+                                <img src={OptionsIcon} alt="Options" className="options-icon"></img>
+                            </button>
+                            {isOptionOpen && currentJobCard === job.id && (<Options 
+                                onOpen = {handleOpenOption}
+                            />)}
+                        </div>
                     </div>
                     <p className="position">{job.position} </p>
                 </CardHeader>

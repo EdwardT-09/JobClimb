@@ -77,18 +77,6 @@ function AddJobModel({ isOpen, onClose, onSave, columnType }) {
                 </h2>
 
                 <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label className="form-label">
-                            JOB POSITION *
-                        </label>
-                        <input
-                            type="text"
-                            className="form-input"
-                            value={formData.position}
-                            onChange={(e) => handleInputChange('position', e.target.value)}
-                            placeholder="Frontend Developer"
-                        />
-                    </div>
 
                     <div className="form-group">
                         <label className="form-label">
@@ -100,6 +88,19 @@ function AddJobModel({ isOpen, onClose, onSave, columnType }) {
                             value={formData.company}
                             onChange={(e) => handleInputChange('company', e.target.value)}
                             placeholder="Tech Company Inc."
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label className="form-label">
+                            JOB POSITION *
+                        </label>
+                        <input
+                            type="text"
+                            className="form-input"
+                            value={formData.position}
+                            onChange={(e) => handleInputChange('position', e.target.value)}
+                            placeholder="Frontend Developer"
                         />
                     </div>
 

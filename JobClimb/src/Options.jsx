@@ -1,7 +1,8 @@
 import Edit from './assets/Edit.svg'
 import Delete from './assets/Delete.svg'
+import './Options.css'
 
-function Options({job}){
+function Options({onOpen}){
     return(        
         <div className="options-container">
             <button className="edit-container">
