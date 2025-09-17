@@ -1,15 +1,39 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './AddJobModel.css';
 
-function AddJobModel({ isOpen, onClose, onSave, columnType }) {
+function AddJobModel({ isOpen, onClose, onSave, onEdit,  columnType, currentJob  }) {
     const [formData, setFormData] = useState({
-        position: '',
         company: '',
+        position: '',
         location: '',
         salary: '',
         startDate: '',
         notes: ''
     });
+
+    useEffect(()=>{
+        if(currentJob){
+            setFormData({
+                company: currentJob.company ||'',
+                position: currentJob.position || '',
+                location: currentJob.location || '',
+                salary: currentJob.salary || '',
+                startDate: currentJob.startDate || '',
+                notes: currentJob.notes || "",
+                id: currentJob.id
+            })
+        }
+        else{
+            setFormData({
+                company: '',
+                position: '',
+                location: '',
+                salary: '',
+                startDate: '',
+                notes: ''
+            })
+        }
+    }, [currentJob])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -26,14 +50,18 @@ function AddJobModel({ isOpen, onClose, onSave, columnType }) {
         }
         
         // Create new job with all data
-        const newJob = {
+        const jobData = {
             ...formData,
-            id: Date.now(),
+             id: currentJob ? currentJob.id : Date.now(),
             status: columnType
         };
+
+        if(currentJob){
+            onEdit(jobData);
+        } else{
+            onSave(jobData);
+        }
         
-        console.log('Saving new job:', newJob);
-        onSave(newJob);
         
         // Reset form
         setFormData({
@@ -137,7 +165,7 @@ function AddJobModel({ isOpen, onClose, onSave, columnType }) {
                         <input
                             type="date"
                             className="form-input"
-                            value={formData.date}
+                            value={formData.startDate}
                             onChange={(e) => handleInputChange('startDate', e.target.value)}
                         />
                     </div>

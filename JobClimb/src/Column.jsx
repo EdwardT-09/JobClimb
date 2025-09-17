@@ -12,6 +12,7 @@ function Column() {
     const [jobs, setJobs] = useState([]);
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
     const [currentColumn, setCurrentColumn] = useState('');
+    const [jobToEdit, setJobToEdit] = useState('');
 
     // Column configuration
     const columns = [
@@ -50,11 +51,26 @@ function Column() {
     const handleAddJob = (column) => {
         setCurrentColumn(column);
         setIsAddModalOpen(true);
+        setJobToEdit(null);
     };
 
+    const handleEditJob = (job) =>{
+        setCurrentColumn(job.status)
+        setJobToEdit(job);
+        setIsAddModalOpen(true);
+    }
 
-    const handleSaveJob = (newJob) => {
-        setJobs([...jobs, newJob]);
+    const handleSaveJob = (jobData) => {
+        if(jobToEdit){
+            const updatedJobs = jobs.map(job =>
+                job.id === jobData.id ? jobData : job
+            )
+            setJobs(updatedJobs)
+            setIsAddModalOpen(false)
+            setJobToEdit('')
+        }else{
+        setJobs([...jobs, jobData]);
+        setIsAddModalOpen(false);}
     };
 
     //handle closing of modals
@@ -103,7 +119,7 @@ function Column() {
                                 Click the + button to add jobs!
                             </div>  
                         ): (
-                            getJobsForColumn(column.id).map(job => (<JobCard key={job.id} job={job} jobs={jobs} setJobs={setJobs}/>))
+                            getJobsForColumn(column.id).map(job => (<JobCard key={job.id} job={job} jobs={jobs} setJobs={setJobs} onEdit={handleEditJob}/>))
                         )}
                     </div>
                              
@@ -114,7 +130,9 @@ function Column() {
                     isOpen={isAddModalOpen}
                     onClose={handleCloseAddModal}
                     onSave={handleSaveJob}
+                    onEdit = {handleSaveJob}
                     columnType={currentColumn}
+                    currentJob={jobToEdit}
                 />
             </div>
 
