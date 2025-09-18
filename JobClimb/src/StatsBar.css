@@ -5,6 +5,7 @@
   gap: 16px;
   margin-bottom: 20px;
   padding: 0 10px;
+  flex-wrap: wrap;
 }
 
 .stat-box {
@@ -16,6 +17,7 @@
   padding: 20px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: default;
+  min-width: 220px;
 }
 
 .stat-box:hover {
@@ -45,4 +47,32 @@
   font-size: 1.1rem;
   font-weight: 500;
   margin: 0;
+}
+
+/* Tablet: 2 stats per row */
+@media (max-width: 1024px) {
+  .stats-container {
+    flex-wrap: nowrap;          /* don’t wrap, force row */
+  }
+  .stat-box {
+    margin: 0;
+  }
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 768px) {
+  .stats-container {
+    flex-wrap: nowrap;          /* don’t wrap, force row */
+    overflow-x: auto;           /* enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+  }
+  .stat-box {
+    flex: 0 0 auto;             /* prevent shrinking */
+    min-width: 220px;           /* box size on mobile */
+    max-width: 220px;
+  }
+
+  .stat-text span {
+    margin-left: 42px;
+  }
 }

@@ -4,6 +4,7 @@
   gap: 16px;
   min-height: 550px;
   margin-bottom: 5%;
+  flex-wrap: wrap;
 }
 
 .column {
@@ -54,4 +55,31 @@
   align-items: center;
   gap:5%;
   width:100%;
+}
+
+@media (max-width: 1024px) {
+  .column {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* make sure column fills space */
+  }
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 768px) {
+  .column-container {
+    flex-direction: column;
+  }
+  .column {
+    flex: 1 1 100%;
+    min-height: 400px; /* give it a drop target area */
+    margin-bottom: 50px;
+  }
+
+  .column-body {
+    flex: 1;
+    overflow-y: auto; /* only cards scroll */
+    padding: 10px;
+    background: #f8f8f8;
+  }
 }
